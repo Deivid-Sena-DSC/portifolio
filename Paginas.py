@@ -16,7 +16,7 @@ def page1():
  
     st.subheader("Viação Grajaú SA.")
     with st.expander("Click para expandir", expanded=False):
-         st.image(r"imagens\viacaograjau.png")
+         #st.image(r"imagens\viacaograjau.png")
          st.write("Data de início: 04/2022")
          st.write("Data de saída: 06/2024")
          st.write("Descrição do cargo: Controle de saída de frota, rastreamento de frota, assistência aos motoristas, cobradores, fiscais entre outros. Preenchimento de planilhas, operar o sistema SIM da SPTRANS, operar sistemas de telemetria Exemplo NOXXON SAT entre outras, informar mecânicos sobre coletivos que necessitam de concerto na via, acompanhar e fazer abertura de fichas de manutenção, relatórios sobre o cumprimento de frota, preenchimento de relatórios e ocorrências em planilhas Excel.")
