@@ -27,7 +27,7 @@ def main():
     st.markdown(background_image, unsafe_allow_html=True)
 
     # Barra lateral para navegação
-    st.sidebar.image(r'imagens\dsc.jpg')
+    #st.sidebar.image(r'imagens\dsc.jpg')
   
     with st.sidebar:
             page = option_menu(
