@@ -1,15 +1,15 @@
 import streamlit as st
-from graficos import graf_barra, graf_pie, graf_line, graf_funil, graf_barra_agrupada, graf_line_agrupada, graf_funil_agrupada
-
+import pandas as pd 
+from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_barra_agrupada2, graf_barra_count, graf_funil, graf_funil_agrupada, graf_line, graf_line_agrupada, graf_pie, graf_pie2
 
 # Funções para diferentes páginas
 @st.cache_data
 def home_page():
-    st.header("Toda analise de dados começa com uma pergunta.")
+    st.header("Toda análise de dados começa com uma pergunta que o dados pode respoder.")
     st.header("Me de a chance de usar os dados para responder a sua!")
     st.write('')
     st.subheader("Olá me chamo Deivid S.C. Caldas, obrigado por acessar meu portifólio.")
-    st.subheader("Click no incone de '>' para abrir a barra lateral e rolar para as outras páginas.")
+    st.subheader("Click no icone de '>' no canto superior esquerdo da tela para abrir a barra lateral e rolar para as outras páginas.")
 
 @st.cache_data
 def page1():
@@ -97,5 +97,61 @@ def page3():
             st.plotly_chart(graf_line_agrupada(meses, tickets_suporte_abertos, tickets_suporte_fechados, 'Abertos','Fechados', 'Tickets Abertos X Fechados'), use_container_width=True)
             st.plotly_chart(graf_funil_agrupada(meses, tickets_suporte_abertos, tickets_suporte_fechados, 'Abertos','Fechados'), use_container_width=True)
                    
+    with tab2:
+        def df_vendas():
+            df = pd.read_excel('Excel\Vendas Consolidado.xlsx')
+
+            df['Valor Unitario'] = df['Valor Unitario'].astype('float')
+            df['Faturamento'] = df['Faturamento'].astype('float')
+            df['Lucro'] = df['Lucro'].astype('float')
+
+            df.drop_duplicates()
+
+            df.drop(columns='Unnamed: 0', axis=0, inplace=True)
+
+            return df
+
+        df = df_vendas()
+
+        st.write('Mude os filtros abaixo para mudar os Dashboards')
+
+        filtro_ano = st.multiselect('Anos', df['Ano'].unique(), df['Ano'].unique()) # 1º FILTRO ANO
+        df_ano = df[df['Ano'].isin(filtro_ano)] # APLICANDO O FILTRO DE ANO
+
+        filtro_mes = st.multiselect('Meses', df_ano['Mês'].unique(), df_ano['Mês'].unique()) # 2º FILTRO MÊS
+        df_mes = df_ano[df_ano['Mês'].isin(filtro_mes)] # APLICANDO O FILTRO DE MÊS
+
+        filtro_dia = st.multiselect('Dias da semana', df_mes['Dia da semana'].unique(), df_mes['Dia da semana'].unique()) # 3º FILTRO DIA
+        df_dia = df_mes[df_mes['Dia da semana'].isin(filtro_dia)] # APLICANDO O FILTRO DE DIA
+
+        filtro_loja = st.multiselect('Lojas', df_dia['Loja'].unique(), df_dia['Loja'].unique()) # 5º FILTRO LOJA
+        df_loja = df_dia[df_dia['Loja'].isin(filtro_loja)] # APLICANDO O FILTRO DE LOJA
+
+        filtro_estado = st.multiselect('Estados', df_loja['Estado'].unique(), df_loja['Estado'].unique()) # 4º FILTRO ESTADO
+        df_estado = df_loja[df_dia['Estado'].isin(filtro_estado)] # APLICANDO O FILTRO DE ESTADO
             
-                 
+        filtro_produto = st.multiselect('Produtos', df_estado['Produto'].unique(), df_estado['Produto'].unique()) # 6º FILTRO PRODUTO
+        df_produto = df_estado[df_estado['Produto'].isin(filtro_produto)] # APLICANDO O FILTRO DE ESTADO
+
+        faturamento = df_produto['Faturamento'].sum()
+        lucro = df_produto['Lucro'].sum()
+        quantidade_prod = df_produto['Produto'].count()
+        dicionario = {'Faturamento Total': faturamento, 'Lucro Total': lucro, 'Quantidade de produtos vendidos': quantidade_prod}
+        st.table(dicionario)
+
+        st.write('Click na legenda a direita para retirar as Barras ou as Linhas')    
+        st.plotly_chart(graf_barra_linha(df_produto, 'Mês', 'Faturamento', 'Faturamento Mensal R$'), use_container_width=True)
+        st.plotly_chart(graf_barra_linha(df_produto, 'Mês', 'Lucro', 'Lucro Mensal R$'), use_container_width=True)
+        st.plotly_chart(graf_barra_linha(df_produto, 'Dia da semana', 'Faturamento', 'Faturamento por dia da semana R$'), use_container_width=True)
+        st.plotly_chart(graf_barra_linha(df_produto, 'Dia da semana', 'Lucro', 'Lucro por dia da semana R$'), use_container_width=True)
+        st.plotly_chart(graf_barra_agrupada2(df_produto, 'Mês', 'Faturamento', 'Loja', 'Comparação de Faturamento Mensal por Loja'), use_container_width=True)
+        st.plotly_chart(graf_barra_agrupada2(df_produto, 'Mês', 'Faturamento', 'Produto', 'Comparação de Faturamento Mensal por Produto'), use_container_width=True)
+        st.plotly_chart(graf_barra_count(df_produto, 'Mês', 'Produto', 'Quantidade de Produtos Vendidos por Mês'), use_container_width=True)
+        st.plotly_chart(graf_barra_count(df_produto, 'Loja', 'Produto', 'Quantidade de Produtos Vendidos por Loja'), use_container_width=True)
+        coluna1 , coluna2 = st.columns(2)
+        coluna1.plotly_chart(graf_pie2(df_produto, 'Loja', 'Faturamento', 'Faturamento por Loja %'), use_container_width=True)
+        coluna2.plotly_chart(graf_pie2(df_produto, 'Produto', 'Faturamento', 'Faturamento por Produto %'), use_container_width=True)
+        coluna3 , coluna4 = st.columns(2)
+        coluna3.plotly_chart(graf_pie2(df_produto, 'Loja', 'Lucro', 'Lucro por Loja %'), use_container_width=True)
+        coluna4.plotly_chart(graf_pie2(df_produto, 'Produto', 'Lucro', 'Lucro por Produto %'), use_container_width=True)
+                    
