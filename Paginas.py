@@ -99,7 +99,7 @@ def page3():
                    
     with tab2:
         def df_vendas():
-            df = pd.read_excel('Excel\Vendas Consolidado.xlsx')
+            df = pd.read_excel(r'Excel/Vendas Consolidado.xlsx')
 
             df['Valor Unitario'] = df['Valor Unitario'].astype('float')
             df['Faturamento'] = df['Faturamento'].astype('float')
