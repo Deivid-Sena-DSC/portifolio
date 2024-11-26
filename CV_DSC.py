@@ -31,7 +31,7 @@ def main():
   
     with st.sidebar:
             page = option_menu(
-                                menu_title = "Escolha uma página",
+                                menu_title = False,
                                 options = ["Home", "Experiência Profissional", "Formação Acadêmica", "Portifólio", 'Contato'],
                                 menu_icon=None,
                                 icons=['house', 'pc-display-horizontal', 'book', 'bank','envelope'])
