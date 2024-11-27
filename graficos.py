@@ -228,5 +228,5 @@ def graf_funil_agrupada(x, y1, y2, nome1, nome2):
 
 def graf_mapa(dataframe, latitude, longitude, bolha, cores):
     df = dataframe.groupby([cores, latitude, longitude])[bolha].sum().reset_index()
-    fig12 = px.scatter_map(df, lat=latitude, lon=longitude, size=bolha, color=cores, zoom=4, map_style='open-street-map')
+    fig12 = px.scatter_mapbox(df, lat=latitude, lon=longitude, size=bolha, color=cores, zoom=3, mapbox_style='open-street-map')
     return fig12      
