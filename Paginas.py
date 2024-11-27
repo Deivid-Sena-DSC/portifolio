@@ -5,7 +5,7 @@ from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_bar
 # Funções para diferentes páginas
 @st.cache_data
 def home_page():
-    st.header("Toda análise de dados começa com uma pergunta que o dados podem respoder.")
+    st.header("Toda análise de dados começa com uma pergunta que o dados podem responder.")
     st.header("Me de a chance de usar os dados para responder a sua!")
     st.write('')
     st.subheader("Olá me chamo Deivid S.C. Caldas, obrigado por acessar meu portifólio.")
