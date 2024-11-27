@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd 
-from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_barra_agrupada2, graf_barra_count, graf_funil, graf_funil_agrupada, graf_line, graf_line_agrupada, graf_pie, graf_pie2
+from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_barra_agrupada2, graf_barra_count, graf_funil, graf_funil_agrupada, graf_line, graf_line_agrupada, graf_pie, graf_pie2, graf_mapa
 
 # Funções para diferentes páginas
 @st.cache_data
@@ -151,7 +151,7 @@ def page3():
         coluna1 , coluna2 = st.columns(2)
         coluna1.plotly_chart(graf_pie2(df_produto, 'Loja', 'Faturamento', 'Faturamento por Loja %'), use_container_width=True)
         coluna2.plotly_chart(graf_pie2(df_produto, 'Produto', 'Faturamento', 'Faturamento por Produto %'), use_container_width=True)
+        st.plotly_chart(graf_mapa(df_produto, 'Latitude', 'Longitude', 'Faturamento', 'Estado'))
         coluna3 , coluna4 = st.columns(2)
         coluna3.plotly_chart(graf_pie2(df_produto, 'Loja', 'Lucro', 'Lucro por Loja %'), use_container_width=True)
-        coluna4.plotly_chart(graf_pie2(df_produto, 'Produto', 'Lucro', 'Lucro por Produto %'), use_container_width=True)
-                    
+        coluna4.plotly_chart(graf_pie2(df_produto, 'Produto', 'Lucro', 'Lucro por Produto %'), use_container_width=True)          
