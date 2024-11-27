@@ -75,24 +75,25 @@ def page3():
         receita_mensal = [10000, 8500, 9800, 10000, 11000, 12000, 10000, 10500, 13000, 13000, 20000, 17000]
         tickets_suporte_abertos = [110, 75, 100, 140, 170, 160, 100, 130, 190, 200, 210, 140]
         tickets_suporte_fechados = [100, 85, 100, 120, 130, 150, 140, 110, 130, 120, 150, 200]
-        selecao_meses = st.selectbox('', ['Receita Mensal', 'Total de novos usuários mensal', 'Média de usuários ativos diários', 'Tickets'])
+        selecao = st.selectbox('', ['Receita Mensal', 'Total de novos usuários mensal', 'Média de usuários ativos diários', 'Tickets'])
         
-        if selecao_meses == 'Receita Mensal':
+        if selecao == 'Receita Mensal':
             st.write(f'Total de receita R$: {sum(receita_mensal):,.2f}')
             st.plotly_chart(graf_barra(meses, receita_mensal, meses, ''), use_container_width=True)
             st.plotly_chart(graf_line(meses, receita_mensal, ''), use_container_width=True)
             st.plotly_chart(graf_pie(meses, receita_mensal, meses, ''), use_container_width=True)
-        if selecao_meses == 'Total de novos usuários mensal':
-            st.write(f'Total de novos usuários {sum(novos_usuarios):.0f}')
+        if selecao == 'Total de novos usuários mensal':
+            st.write(f'Total de novos usuários {sum(novos_usuarios):,.0f}')
             st.plotly_chart(graf_barra(meses, novos_usuarios, meses, ''), use_container_width=True)
             st.plotly_chart(graf_line(meses, novos_usuarios, ''), use_container_width=True)
             st.plotly_chart(graf_pie(meses, novos_usuarios, meses, ''), use_container_width=True)
-        if selecao_meses == 'Média de usuários ativos diários':
+        if selecao == 'Média de usuários ativos diários':
             st.plotly_chart(graf_barra(meses, usuarios_ativos_diarios, meses, ''), use_container_width=True)
             st.plotly_chart(graf_line(meses, usuarios_ativos_diarios, ''), use_container_width=True)
             st.plotly_chart(graf_funil(meses, usuarios_ativos_diarios), use_container_width=True)
-        if selecao_meses == 'Tickets':
-            st.write(f'Total de Tickets Abertos {sum(tickets_suporte_abertos)} Total de Tickets Fechados {sum(tickets_suporte_fechados)}')
+        if selecao == 'Tickets':
+            st.write(f'Total de Tickets Abertos {sum(tickets_suporte_abertos):,.0f}')
+            st.write(f'Total de Tickets Fechados {sum(tickets_suporte_fechados):,.0f}')
             st.plotly_chart(graf_barra_agrupada(meses, tickets_suporte_abertos, tickets_suporte_fechados, 'Abertos','Fechados', 'Tickets Abertos X Fechados'), use_container_width=True)
             st.plotly_chart(graf_line_agrupada(meses, tickets_suporte_abertos, tickets_suporte_fechados, 'Abertos','Fechados', 'Tickets Abertos X Fechados'), use_container_width=True)
             st.plotly_chart(graf_funil_agrupada(meses, tickets_suporte_abertos, tickets_suporte_fechados, 'Abertos','Fechados'), use_container_width=True)
@@ -137,7 +138,7 @@ def page3():
         lucro = df_produto['Lucro'].sum()
         quantidade_prod = df_produto['Produto'].count()
         dicionario = {'Faturamento Total': faturamento, 'Lucro Total': lucro, 'Quantidade de produtos vendidos': quantidade_prod}
-        st.table(dicionario)
+        st.dataframe(dicionario)
 
         st.write('Click na legenda a direita para retirar as Barras ou as Linhas')    
         st.plotly_chart(graf_barra_linha(df_produto, 'Mês', 'Faturamento', 'Faturamento Mensal R$'), use_container_width=True)
