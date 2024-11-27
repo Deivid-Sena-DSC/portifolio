@@ -66,7 +66,7 @@ def page2():
 
 def page3():
     st.subheader('Aqui eu demostro um pouco do que eu sei fazer')
-    tab1, tab2, tab3, tab4 = st.tabs(['Dashboard de serviço de assinatura', 'Dashboard de vendas', 'Correlação de Pearson', 'Árvore de decisão'])
+    tab1, tab2, tab3, tab4 = st.tabs(['Dashboard de serviço de assinatura', 'Dashboard de vendas', 'Correlação de Pearson', 'Análise de Churn'])
 
     with tab1:
         meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agoto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
@@ -155,3 +155,8 @@ def page3():
         coluna3 , coluna4 = st.columns(2)
         coluna3.plotly_chart(graf_pie2(df_produto, 'Loja', 'Lucro', 'Lucro por Loja %'), use_container_width=True)
         coluna4.plotly_chart(graf_pie2(df_produto, 'Produto', 'Lucro', 'Lucro por Produto %'), use_container_width=True)          
+
+    with tab3:
+        st.subheader('Em andamento logo será postado')
+    with tab4:
+        st.subheader('Em andamento logo será postado')    

@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
+from streamlit_option_menu import option_menu 
 from Paginas import home_page, page1, page2, page3
 import time
 
@@ -26,15 +26,18 @@ def main():
     # Aplicar o estilo de fundo
     st.markdown(background_image, unsafe_allow_html=True)
 
-    # Barra lateral para navegação
-    # st.sidebar.image(r'imagens\dsc.jpg')
-  
+    
     with st.sidebar:
             page = option_menu(
                                 menu_title = False,
-                                options = ["Home", "Experiência Profissional", "Formação Acadêmica", "Portifólio", 'Contato'],
+                                options = ["Home", "Experiência Profissional", "Formação Acadêmica", "Portifólio"],
                                 menu_icon=None,
-                                icons=['house', 'pc-display-horizontal', 'book', 'bank','envelope'])
+                                icons=['house', 'pc-display-horizontal', 'book', 'bank'])
+            
+            st.subheader('Contato')
+            st.link_button('LinkedIn', url='www.linkedin.com/in/deivid-sena-dsc')
+            st.write('Tel: (11) 97529-1160')
+            st.write('deivid.sena.dsc@gmail.com')
 
     # Exibir o conteúdo baseado na página selecionada
     if page == "Home":
