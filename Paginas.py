@@ -16,7 +16,7 @@ def page1():
  
     st.subheader("Viação Grajaú SA.")
     with st.expander("Click para expandir", expanded=False):
-         st.image(r"imagens\viacaograjau.png")
+         #st.image(r"imagens\viacaograjau.png")
          st.write("Data de início: 04/2022")
          st.write("Data de saída: 06/2024")
          st.write("Descrição do cargo: Controle de saída de frota, rastreamento de frota, assistência aos motoristas, cobradores, fiscais entre outros. Preenchimento de planilhas, operar o sistema SIM da SPTRANS, operar sistemas de telemetria Exemplo NOXXON SAT entre outras, informar mecânicos sobre coletivos que necessitam de concerto na via, acompanhar e fazer abertura de fichas de manutenção, relatórios sobre o cumprimento de frota, preenchimento de relatórios e ocorrências em planilhas Excel.")
@@ -113,7 +113,7 @@ def page3():
 
         df = df_vendas()
 
-        st.subheader('Mude os filtros abaixo para mudar os Dashboards')
+        st.subheader('Mude os filtros abaixo para atualizar os Dashboards')
 
         filtro_ano = st.multiselect('Anos', df['Ano'].unique(), df['Ano'].unique()) # 1º FILTRO ANO
         df_ano = df[df['Ano'].isin(filtro_ano)] # APLICANDO O FILTRO DE ANO
@@ -151,7 +151,7 @@ def page3():
         coluna1 , coluna2 = st.columns(2)
         coluna1.plotly_chart(graf_pie2(df_produto, 'Loja', 'Faturamento', 'Faturamento por Loja %'), use_container_width=True)
         coluna2.plotly_chart(graf_pie2(df_produto, 'Produto', 'Faturamento', 'Faturamento por Produto %'), use_container_width=True)
-        st.plotly_chart(graf_mapa(df_produto, 'Latitude', 'Longitude', 'Faturamento', 'Estado'), use_container_width=True)
+        st.plotly_chart(graf_mapa(df_produto, 'Latitude', 'Longitude', 'Faturamento', 'Estado', 'Mapa dos Estados'), use_container_width=True)
         coluna3 , coluna4 = st.columns(2)
         coluna3.plotly_chart(graf_pie2(df_produto, 'Loja', 'Lucro', 'Lucro por Loja %'), use_container_width=True)
         coluna4.plotly_chart(graf_pie2(df_produto, 'Produto', 'Lucro', 'Lucro por Produto %'), use_container_width=True)          
