@@ -35,7 +35,7 @@ def main():
                                 icons=['house', 'pc-display-horizontal', 'book', 'bank'])
             
             st.subheader('Contato')
-            st.link_button('LinkedIn', url='www.linkedin.com/in/deivid-sena-dsc')
+            st.link_button('LinkedIn', url='https://www.linkedin.com/in/deivid-sena-dsc/')
             st.write('Tel: (11) 97529-1160')
             st.write('deivid.sena.dsc@gmail.com')
 
