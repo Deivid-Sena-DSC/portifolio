@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu 
-from Paginas import home_page, page1, page2, page3
+from Paginas1_2 import home_page, page1, page2
+from Pagina3 import page3
 import time
 
 st.set_page_config(layout="wide")
@@ -54,4 +55,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-    # streamlit run CV_DSC.py
+    # streamlit run Portifolio.py
