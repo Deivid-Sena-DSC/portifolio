@@ -16,7 +16,7 @@ def carregar_dados(empresa):
 # FUNÇÃO PARA CARREGAR OS NOMES DOS TICKERS
 @st.cache_data
 def carregar_acoes():
-    base_acoes = pd.read_csv('Excel\IBOV.csv', sep=';')
+    base_acoes = pd.read_csv('Excel/IBOV.csv', sep=';')
     tickers = list(base_acoes['Código'])
     tickers = [item + '.SA' for item in tickers]
     return tickers
