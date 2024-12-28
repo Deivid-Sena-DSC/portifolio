@@ -9,7 +9,7 @@ def page3():
     tab1, tab2, tab3, tab4 = st.tabs(['Dashboard de serviço de assinatura', 'Dashboard de vendas', 'App de Ações', 'Análise de Churn'])
 
     with tab1:
-        meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agoto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+        meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
         novos_usuarios = [100, 80, 110, 140, 150, 160, 170, 120, 110, 150, 200, 140]
         usuarios_ativos_diarios = [1000, 750, 900, 1300, 1400, 1500, 1200, 1200, 1500, 1900, 2000, 1800]
         receita_mensal = [10000, 8500, 9800, 10000, 11000, 12000, 10000, 10500, 13000, 13000, 20000, 17000]
