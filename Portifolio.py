@@ -16,7 +16,7 @@ carregando.empty()
 
 # Função principal de navegação
 def main():
-    img_url = "https://img.freepik.com/vetores-gratis/linha-onda-de-estilo-minimalista-de-cor-gradiente-de-luxo_483537-3948.jpg?t=st=1732553142~exp=1732556742~hmac=8a7a708bf5fb6b7624a9d4f7ff59ff60c268ac7a27946063c9486164e73845e1&w=1060"
+    img_url = "https://images5.alphacoders.com/301/301407.jpg"
     # HTML para definir a imagem de fundo
     background_image = f"""<style>.stApp {{
         background-image: url("{img_url}");
