@@ -1,12 +1,20 @@
 import streamlit as st
 import pandas as pd
+from Upload import upload
 from app_acoes import app_acoes 
 from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_barra_agrupada2, graf_barra_count, graf_funil, graf_funil_agrupada, graf_line, graf_line_agrupada, graf_pie, graf_pie2, graf_mapa
 
 
-def page3():
+# Funções para diferentes páginas
+def home_page():
+    st.header("Toda análise de dados começa com uma pergunta que o dados podem responder.")
+    st.header("Me de a chance de usar os dados para responder a sua!")
+    st.write('')
+    st.subheader("Olá me chamo Deivid S.C. Caldas, obrigado por acessar meu portifólio.")
+    st.subheader("Click no icone de '>' no canto superior esquerdo da tela para abrir a barra lateral e rolar para as outras páginas.")
+    st.write('')
     st.subheader('Aqui eu demostro um pouco do que eu sei fazer')
-    tab1, tab2, tab3, tab4 = st.tabs(['Dashboard de serviço de assinatura', 'Dashboard de vendas', 'App de Ações', 'Análise de Churn'])
+    tab1, tab2, tab3, tab4 = st.tabs(['DASHBOARD DE SERVIÇO DE ASSINATURA', 'DASHBOARD DE VENDAS', 'APP DE AÇÕES', 'APP DE DASHBOARDS'])
 
     with tab1:
         meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
@@ -100,4 +108,5 @@ def page3():
     with tab3:
         app_acoes()
     with tab4:
-        st.subheader('Em andamento logo será postado')    
+        st.subheader('ESSE É UM APP DE DASHBOARD ONDE VOCÊ FAZ UPLOAD DE UM ARQUIVOS EXCEL E ELE VAI TENTAR MONTAR GRÁFICOS ULTIZANDO AS COLUNAS NÚMERICAS E DE TEXTO DO SEU ARQUIVO.')
+        upload()   

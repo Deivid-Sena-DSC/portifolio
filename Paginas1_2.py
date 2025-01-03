@@ -2,15 +2,6 @@ import streamlit as st
 import pandas as pd 
 from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_barra_agrupada2, graf_barra_count, graf_funil, graf_funil_agrupada, graf_line, graf_line_agrupada, graf_pie, graf_pie2, graf_mapa
 
-# Funções para diferentes páginas
-@st.cache_data
-def home_page():
-    st.header("Toda análise de dados começa com uma pergunta que o dados podem responder.")
-    st.header("Me de a chance de usar os dados para responder a sua!")
-    st.write('')
-    st.subheader("Olá me chamo Deivid S.C. Caldas, obrigado por acessar meu portifólio.")
-    st.subheader("Click no icone de '>' no canto superior esquerdo da tela para abrir a barra lateral e rolar para as outras páginas.")
-
 @st.cache_data
 def page1():
  

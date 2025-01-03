@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu 
-from Paginas1_2 import home_page, page1, page2
-from Pagina3 import page3
+from Paginas1_2 import page1, page2
+from Home import home_page
 import time
 
 st.set_page_config(layout="wide")
@@ -31,9 +31,9 @@ def main():
     with st.sidebar:
             page = option_menu(
                                 menu_title = False,
-                                options = ["Home", "Experiência Profissional", "Formação Acadêmica", "Portifólio"],
+                                options = ["Home - Portifólio", "Experiência Profissional", "Formação Acadêmica"],
                                 menu_icon=None,
-                                icons=['house', 'pc-display-horizontal', 'book', 'bank'])
+                                icons=['bank', 'pc-display-horizontal', 'book'])
             
             st.subheader('Contato')
             st.link_button('LinkedIn', url='https://www.linkedin.com/in/deivid-sena-dsc/')
@@ -41,14 +41,12 @@ def main():
             st.write('deivid.sena.dsc@gmail.com')
 
     # Exibir o conteúdo baseado na página selecionada
-    if page == "Home":
+    if page == "Home - Portifólio":
         home_page()
     elif page == "Experiência Profissional":
         page1()
     elif page == "Formação Acadêmica":
         page2()
-    elif page == "Portifólio":
-        page3()
 
 
 # Rodar a função principal
