@@ -28,7 +28,7 @@ def upload():
                         filtro_opcoes_data = st.multiselect('OPÇÕES DE DATAS', df[filtro_data].unique())
                         df = df[df[filtro_data].isin(filtro_opcoes_data)]
                     filtro_str = st.selectbox('LISTA DE COLUNAS', options=lista_colunas_str)
-                    filtro_opcoes_colunas = st.multiselect('OPÇÕES DA COLUNA ESCOLHIDA', df[filtro_str].unique(); df[filtro_str][0])
+                    filtro_opcoes_colunas = st.multiselect('OPÇÕES DA COLUNA ESCOLHIDA', df[filtro_str].unique(), df[filtro_str][0])
                     df = df[df[filtro_str].isin(filtro_opcoes_colunas)]
                     filtro_int_float = st.multiselect('LISTA DE COLUNAS NÚMERICAS', lista_colunas_int_float, lista_colunas_int_float[0])
                     with st.spinner('CARREGANDO...'):
