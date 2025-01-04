@@ -6,14 +6,6 @@ import time
 
 st.set_page_config(layout="wide")
 
-carregando = st.empty()
-carregando.progress(50, "Carregando")
-time.sleep(1)
-carregando.progress(100, "Tudo Pronto")
-time.sleep(1)
-carregando.empty()
-
-
 # Função principal de navegação
 def main():
     img_url = "https://images5.alphacoders.com/301/301407.jpg"
@@ -53,4 +45,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-    # streamlit run Portifolio.py
+# streamlit run Portifolio.py
