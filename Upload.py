@@ -1,8 +1,6 @@
 import plotly.express as px
 import streamlit as st   
 import pandas as pd
-from graficos import graf_barra_agrupada
-
 
 def upload():
     arquivo_upload = st.file_uploader('Arraste um arquivo')
