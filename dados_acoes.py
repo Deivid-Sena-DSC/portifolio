@@ -9,7 +9,7 @@ data_atual = datetime.now().strftime("%Y-%m-%d")
 def carregar_dados(empresa):
     texto_tickers = " ".join(empresa)
     acao = yf.Tickers(texto_tickers)
-    cotacao_acao = acao.history(period="1d", start="2023-01-01", end=data_atual)
+    cotacao_acao = acao.history(period="1d", start="2024-01-01", end=data_atual)
     cotacao_acao = cotacao_acao['Close']
     return cotacao_acao
 

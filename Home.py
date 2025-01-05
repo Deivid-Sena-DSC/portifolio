@@ -2,17 +2,16 @@ import streamlit as st
 import pandas as pd
 from Upload import upload
 from app_acoes import app_acoes 
+from app_moedas import app_moedas
 from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_barra_agrupada2, graf_barra_count, graf_funil, graf_funil_agrupada, graf_line, graf_line_agrupada, graf_pie, graf_pie2, graf_mapa
 
 
 # Funções para diferentes páginas
 def home_page():
-    st.header("Toda análise de dados começa com uma pergunta que o dados podem responder.")
-    st.header("Me de a chance de usar os dados para responder a sua!")
-    st.write('')
     st.subheader("Olá me chamo Deivid S.C. Caldas, obrigado por acessar meu portifólio.")
     st.subheader("Click no icone de '>' no canto superior esquerdo da tela para abrir a barra lateral e rolar para as outras páginas.")
-    st.write('')
+    st.subheader('API COTAÇÃO DE CRIPTO MOEDAS')
+    app_moedas()
     st.subheader('Aqui eu demostro um pouco do que eu sei fazer')
     tab1, tab2, tab3, tab4 = st.tabs(['DASHBOARD DE SERVIÇO DE ASSINATURA', 'DASHBOARD DE VENDAS', 'APP DE AÇÕES', 'APP DE DASHBOARDS'])
 

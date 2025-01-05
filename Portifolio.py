@@ -2,7 +2,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu 
 from Paginas1_2 import page1, page2
 from Home import home_page
-import time
 
 st.set_page_config(layout="wide")
 
@@ -39,7 +38,6 @@ def main():
         page1()
     elif page == "Formação Acadêmica":
         page2()
-
 
 # Rodar a função principal
 if __name__ == "__main__":
