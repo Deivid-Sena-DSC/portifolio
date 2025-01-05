@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 
 # Função principal de navegação
 def main():
-    img_url = "https://wallpapers.com/images/hd/1920x1080-black-ivgflkhu7bxomm84.jpg"
+    img_url = "https://img.freepik.com/free-vector/square-background_23-2148048826.jpg?t=st=1736098786~exp=1736102386~hmac=2da265739bf1ff8437e59906aeabb2aff8f68b10d839cedc6caa550d261f6897&w=740"
     # HTML para definir a imagem de fundo
     background_image = f"""<style>.stApp {{
         background-image: url("{img_url}");
