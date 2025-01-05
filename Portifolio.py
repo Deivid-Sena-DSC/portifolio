@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 
 # Função principal de navegação
 def main():
-    img_url = "https://images5.alphacoders.com/301/301407.jpg"
+    img_url = "https://wallpapers.com/images/hd/1920x1080-black-ivgflkhu7bxomm84.jpg"
     # HTML para definir a imagem de fundo
     background_image = f"""<style>.stApp {{
         background-image: url("{img_url}");
