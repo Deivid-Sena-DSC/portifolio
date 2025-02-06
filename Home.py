@@ -10,7 +10,7 @@ from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_bar
 def home_page():
     st.subheader("Olá me chamo Deivid S.C. Caldas, obrigado por acessar meu portifólio.")
     st.subheader("Click no icone de '>' no canto superior esquerdo da tela para abrir a barra lateral e rolar para as outras páginas.")
-    st.subheader('API COTAÇÃO DE CRIPTO MOEDAS')
+    st.subheader('COTAÇÃO DE CRIPTO MOEDAS')
     app_moedas()
     st.subheader('Aqui eu demostro um pouco do que eu sei fazer')
     tab1, tab2, tab3, tab4 = st.tabs(['DASHBOARD DE SERVIÇO DE ASSINATURA', 'DASHBOARD DE VENDAS', 'APP DE AÇÕES', 'APP DE DASHBOARDS'])
