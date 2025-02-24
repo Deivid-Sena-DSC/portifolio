@@ -3,6 +3,7 @@ import pandas as pd
 from Upload import upload
 from app_acoes import app_acoes 
 from app_moedas import app_moedas
+from resultado_dados import resultado_dados
 from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_barra_agrupada2, graf_barra_count, graf_funil, graf_funil_agrupada, graf_line, graf_line_agrupada, graf_pie, graf_pie2, graf_mapa
 
 
@@ -10,12 +11,11 @@ from graficos import graf_barra, graf_barra_linha, graf_barra_agrupada, graf_bar
 def home_page():
     st.subheader("Olá me chamo Deivid S.C. Caldas, obrigado por acessar meu portifólio.")
     st.subheader("Click no icone de '>' no canto superior esquerdo da tela para abrir a barra lateral e rolar para as outras páginas.")
-    st.subheader('API COTAÇÃO DE CRIPTO MOEDAS')
-    app_moedas()
-    st.subheader('Aqui eu demostro um pouco do que eu sei fazer')
-    tab1, tab2, tab3, tab4 = st.tabs(['DASHBOARD DE SERVIÇO DE ASSINATURA', 'DASHBOARD DE VENDAS', 'APP DE AÇÕES', 'APP DE DASHBOARDS'])
+    st.subheader('Logo abaixo eu demonstro alguns projetos feitos em Python')
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['DASHBOARD DE SERVIÇO DE ASSINATURA', 'DASHBOARD DE VENDAS', '1º PROJETO DE WEB SCRAPING', '2º PROJETO DE WEB SCRAPING', 'APP DE DASHBOARDS', 'APP DE AÇÕES'])
 
     with tab1:
+        st.write('Esse é um projeto simples de análise descritiva dos resultados de um serviço de assinatura.')
         with st.spinner('CARREGANDO...'):
             meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
             novos_usuarios = [100, 80, 110, 140, 150, 160, 170, 120, 110, 150, 200, 140]
@@ -47,6 +47,7 @@ def home_page():
                 st.plotly_chart(graf_funil_agrupada(meses, tickets_suporte_abertos, tickets_suporte_fechados, 'Abertos','Fechados'), use_container_width=True)
                    
     with tab2:
+        st.write('Essa é uma análise detalhada dos resultados das vendas onde é possível modificar os filtros para detalhar melhor os resultados por ano, loja, mês, dia da semana e estado.')
         with st.spinner('CARREGANDO...'):
             def df_vendas():
                 df = pd.read_excel(r'Excel/Vendas Consolidado.xlsx')
@@ -107,8 +108,23 @@ def home_page():
             coluna4.plotly_chart(graf_pie2(df_produto, 'Produto', 'Lucro', 'Lucro por Produto %'), use_container_width=True)          
 
     with tab3:
-        app_acoes()
+        st.write('Esse é um projeto de Web Scraping onde eu ultilizei a bliblioteca do Python BeautifulSoup para fazer a raspagem de dados de cripto moedas do site https://coinmarketcap.com/pt-br/ e repassar para o meu portifólio.')
+        with st.spinner('CARREGANDO...'):
+            app_moedas()
+
     with tab4:
-        st.subheader('EM ANDAMENTO LOGO ESTARÁ CONCLUÍDO.')
-        st.subheader('ESSE É UM APP DE DASHBOARD ONDE VOCÊ FAZ UPLOAD DE UM ARQUIVO EXCEL E ELE VAI TENTAR MONTAR GRÁFICOS ULTIZANDO AS COLUNAS NÚMERICAS E DE TEXTO DO SEU ARQUIVO.')
-        upload()   
+        st.write('Esse é um projeto de Web Scraping onde eu ultilizei a biblioteca do Python Selenium. Ultilizando uma palavra chave fornecida pelo usuário o projeto faz a raspagem de dados em dois gigantes do varejo, Mercado Livre e Magazine. O objetivo é trazer os resultados da pralvra chave jutamente com a descrição do produto, imagem, preço, e link.')
+        with st.spinner('CARREGANDO...'):
+            resultado_dados()       
+
+    with tab5:
+        st.write('Esse é um projeto que está em andamento o objetivo e gerar graficos com base no arquivo excel fornecido pelo usuário.')
+        with st.spinner('CARREGANDO...'):
+            upload()  
+
+    with tab6:
+        with st.spinner('CARREGANDO...'):
+            try:
+                app_acoes()
+            except:
+                pass

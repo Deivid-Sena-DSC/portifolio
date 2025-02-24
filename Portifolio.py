@@ -25,11 +25,7 @@ def main():
                                 options = ["Home - Portifólio", "Experiência Profissional", "Formação Acadêmica"],
                                 menu_icon=None,
                                 icons=['bank', 'pc-display-horizontal', 'book'])
-            
-            st.subheader('Contato')
-            st.link_button('LinkedIn', url='https://www.linkedin.com/in/deivid-sena-dsc/')
-            st.write('Tel: (11) 97529-1160')
-            st.write('deivid.sena.dsc@gmail.com')
+            st.html("contato.html")
 
     # Exibir o conteúdo baseado na página selecionada
     if page == "Home - Portifólio":

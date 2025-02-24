@@ -26,4 +26,4 @@ def app_moedas():
         dicionario = {"Logo": logo['src'], "Nome": nome[2].text, "Valor": valor[3].text, "1h %": percentuais[0], "24h %": percentuais[1], "7d %": percentuais[2]}
         moedas.append(dicionario)
     df = pd.DataFrame(moedas)
-    return st.dataframe(df, column_config={"Logo": st.column_config.ImageColumn("Logo", width='small')})
+    return st.dataframe(df, column_config={"Logo": st.column_config.ImageColumn("Logo", width='small')}, use_container_width=True)
