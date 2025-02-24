@@ -22,11 +22,7 @@ def app_acoes():
         # FILTRO DE DATAS
         data_inicial = dados.index.min().to_pydatetime()
         data_final = dados.index.max().to_pydatetime()
-        intervalo_data = st.slider('SELECIONE O PERÍODO',
-                                            min_value=data_inicial,
-                                            max_value=data_final,
-                                                value=(data_inicial, data_final),
-                                                step=timedelta(days=1))
+        intervalo_data = st.slider('SELECIONE O PERÍODO', min_value=data_inicial, max_value=data_final, value=(data_inicial, data_final), step=timedelta(days=1))
 
         dados = dados.loc[intervalo_data[0]:intervalo_data[1]] # APLICANDO O FILTRO DE DATAS
 
