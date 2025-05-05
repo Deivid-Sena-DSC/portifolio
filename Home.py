@@ -15,7 +15,18 @@ def home_page():
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['DASHBOARD DE SERVIÇO DE ASSINATURA', 'DASHBOARD DE VENDAS', '1º PROJETO DE WEB SCRAPING', '2º PROJETO DE WEB SCRAPING', 'APP DE DASHBOARDS', 'APP DE AÇÕES'])
 
     with tab1:
-        st.write('Esse é um projeto simples de análise descritiva dos resultados de um serviço de assinatura.')
+        st.write(''' Projeto de Análise Descritiva – Serviço de Assinatura
+
+Este projeto tem como objetivo analisar os principais indicadores operacionais e de desempenho de um serviço de assinatura. As métricas avaliadas incluem:
+
+Receita Mensal: acompanhamento da evolução da receita ao longo do tempo.
+
+Total de Novos Usuários: número de assinantes adquiridos em cada mês.
+
+Média de Usuários Mensal: cálculo da média de usuários ativos por mês.
+
+Chamados Abertos (Tickets): total de solicitações de suporte ou atendimento registradas mensalmente. ''')
+        
         with st.spinner('CARREGANDO...'):
             meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
             novos_usuarios = [100, 80, 110, 140, 150, 160, 170, 120, 110, 150, 200, 140]
