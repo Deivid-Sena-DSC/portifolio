@@ -15,17 +15,17 @@ def home_page():
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(['DASHBOARD DE SERVIÇO DE ASSINATURA', 'DASHBOARD DE VENDAS', '1º PROJETO DE WEB SCRAPING', '2º PROJETO DE WEB SCRAPING', 'APP DE DASHBOARDS', 'APP DE AÇÕES'])
 
     with tab1:
-        st.write(''' Projeto de Análise Descritiva – Serviço de Assinatura
+        st.write(''' Projeto de Análise Descritiva – Serviço de Assinatura\n
 
-Este projeto tem como objetivo analisar os principais indicadores operacionais e de desempenho de um serviço de assinatura. As métricas avaliadas incluem:
+Este projeto tem como objetivo analisar os principais indicadores operacionais e de desempenho de um serviço de assinatura. As métricas avaliadas incluem:\n
 
-Receita Mensal: acompanhamento da evolução da receita ao longo do tempo.
+Receita Mensal: acompanhamento da evolução da receita ao longo do tempo.\n
 
-Total de Novos Usuários: número de assinantes adquiridos em cada mês.
+Total de Novos Usuários: número de assinantes adquiridos em cada mês.\n
 
-Média de Usuários Mensal: cálculo da média de usuários ativos por mês.
+Média de Usuários Mensal: cálculo da média de usuários ativos por mês.\n
 
-Chamados Abertos (Tickets): total de solicitações de suporte ou atendimento registradas mensalmente. ''')
+Chamados Abertos (Tickets): total de solicitações de suporte ou atendimento registradas mensalmente.\n ''')
         
         with st.spinner('CARREGANDO...'):
             meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
@@ -58,7 +58,9 @@ Chamados Abertos (Tickets): total de solicitações de suporte ou atendimento re
                 st.plotly_chart(graf_funil_agrupada(meses, tickets_suporte_abertos, tickets_suporte_fechados, 'Abertos','Fechados'), use_container_width=True)
                    
     with tab2:
-        st.write('Essa é uma análise detalhada dos resultados das vendas onde é possível modificar os filtros para detalhar melhor os resultados por ano, loja, mês, dia da semana e estado.')
+        st.write(''' Análise Detalhada de Resultados de Vendas\n
+
+Esta análise oferece uma visão aprofundada dos resultados de vendas, permitindo personalizar os filtros para explorar os dados de acordo com diferentes dimensões, como ano, loja, mês, dia da semana e estado.\n Essa flexibilidade possibilita um entendimento mais preciso e detalhado das variações de desempenho. ''')
         with st.spinner('CARREGANDO...'):
             def df_vendas():
                 df = pd.read_excel(r'Excel/Vendas Consolidado.xlsx')
